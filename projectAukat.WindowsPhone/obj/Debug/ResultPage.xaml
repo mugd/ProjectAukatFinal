@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="projectAukat.ResultPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:projectAukat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:drawerLayout="using:DrawerLayout"  
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="RootLayout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Title Bar -->
+
+        <Grid x:Name="TitleBar" Background="#FF0016EF" Grid.Row ="0" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image x:ConnectionId='2' Margin="5"  x:Name="DrawerIcon"  Grid.Column="0" Source="/Assets/drawer_icon.png" HorizontalAlignment="Left"                            />
+            <TextBlock Grid.Column="1" Text="Latest Result" Foreground="White" VerticalAlignment="Center" FontSize="18"/>
+        </Grid>
+        <drawerLayout:DrawerLayout Grid.Row="1"  x:Name="DrawerLayout">
+            <Grid x:Name="MainFragment" Background="White">
+                <!-- Main Content goes here -->
+                
+                    <StackPanel x:Name="Stack">
+                    
+                        <Grid VerticalAlignment="Stretch" 
+                          HorizontalAlignment="Stretch"
+                          >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="110"/>
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="14" Foreground="Black" Grid.Column="0" Text="Paper Name"/>
+                            <TextBlock FontSize="14"  Foreground="Black" Grid.Column="1" Text="Int "/>
+                            <TextBlock FontSize="14"   Foreground="Black" Grid.Column="2" Text="Ext "/>
+                            <TextBlock FontSize="14"  Foreground="Black" Grid.Column="3" Text="Total"/>
+                            <TextBlock FontSize="14" Foreground="Black" Grid.Column="4" Text="   Appear Year"/>
+                        </Grid>
+                   
+                        <ListView x:Name="secondList"
+                              ItemsSource="{Binding}"
+                              SelectionMode="None" ScrollViewer.ZoomMode="Enabled" Margin="0,0,0,0" HorizontalAlignment="Stretch" Width="Auto">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200"/>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="110"/>
+
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Foreground="Black" Grid.Column="0" Text="{Binding papername}"/>
+                                        <TextBlock Foreground="Black" Grid.Column="1" Text="{Binding internal}"/>
+                                        <TextBlock  Foreground="Black" Grid.Column="2" Text="{Binding external}"/>
+                                        <TextBlock Foreground="Black" Grid.Column="3" Text="{Binding total}"/>
+                                        <TextBlock Foreground="Black" Grid.Column="4" Text="{Binding appearyear}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    
+                </StackPanel>
+            
+            </Grid>
+
+            <Grid x:Name="ListFragment" Background="#F4F4F4">
+                <StackPanel>
+                    <ListView x:ConnectionId='1' x:Name="ListMenuItems"                                                  
+                           >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                Text="{Binding}" Margin="10"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                FontSize="18" 
+                                Foreground="Black" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Margin="0,210,0,0">
+                        <TextBlock  Foreground="Black" Text="Powered By" FontSize="12"/>
+                        <TextBlock  Foreground="Black" Text="Microsoft User Group Delhi" TextWrapping="Wrap" FontSize="24" FontFamily="Segoe UI" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </drawerLayout:DrawerLayout>
+        <!-- Drawer Layout -->
+
+    </Grid>
+</Page>
+

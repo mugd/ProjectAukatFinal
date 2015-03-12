@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="projectAukat.Feedback"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:projectAukat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:drawerLayout="using:DrawerLayout" 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="RootLayout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Title Bar -->
+
+        <Grid x:Name="TitleBar" Background="#FF0016EF" Grid.Row ="0" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image x:ConnectionId='3' Margin="5"  x:Name="DrawerIcon"  Grid.Column="0" Source="/Assets/drawer_icon.png" HorizontalAlignment="Left"                            />
+            <TextBlock Grid.Column="1" Text="Latest Result" Foreground="White" VerticalAlignment="Center" FontSize="18"/>
+        </Grid>
+        <drawerLayout:DrawerLayout Grid.Row="1"  x:Name="DrawerLayout">
+            <Grid x:Name="MainFragment" Background="White">
+                
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Foreground="Black" Text="Name" Grid.Column="0" Grid.Row="0" FontSize="20" Width="auto" Height="auto"/>
+                    <TextBlock Foreground="Black" Text="Roll No" Grid.Column="0" Grid.Row="1" FontSize="20" Width="auto" Height="auto"/>
+                    <TextBlock Foreground="Black" Text="Semester" Grid.Column="0" Grid.Row="2" FontSize="20" Width="auto" Height="auto"/>
+                    <TextBlock Foreground="Black" Text="Program" Grid.Column="0" Grid.Row="3" FontSize="20" Width="auto" Height="auto"/>
+                    <TextBlock Foreground="Black" Text="Appear" Grid.Column="0" Grid.Row="4" FontSize="20" Width="auto" Height="auto"/>
+                    <TextBlock Foreground="Black" Text="Explanation" Grid.Column="0" Grid.Row="5" FontSize="20" Width="auto" Height="auto"/>
+                    <TextBox Foreground="Black" BorderBrush="Black" PlaceholderText="Enter your Name" x:Name="Namen" Grid.Column="1" Grid.Row="0" FontSize="20" Width="auto" Height="auto" BorderThickness="0,0,0,2.50009989738464" RequestedTheme="Light"/>
+                    <TextBox Foreground="Black" BorderBrush="Black" PlaceholderText="Enter your roll No." x:Name="RollNo" Grid.Column="1" Grid.Row="1" FontSize="20" Width="auto" Height="auto" BorderThickness="0,0,0,2.50009989738464" RequestedTheme="Light"/>
+                    <TextBox Foreground="Black" BorderBrush="Black" PlaceholderText="Enter your semester" x:Name="Semester" Grid.Column="1" Grid.Row="2" FontSize="20" Width="auto" Height="auto" BorderThickness="0,0,0,2.50009989738464" RequestedTheme="Light"/>
+                    <TextBox Foreground="Black" BorderBrush="Black" PlaceholderText="Enter your program" x:Name="Program" Grid.Column="1" Grid.Row="3" FontSize="20" Width="auto" Height="auto" BorderThickness="0,0,0,2.50009989738464" RequestedTheme="Light"/>
+                    <TextBox Foreground="Black" BorderBrush="Black"  PlaceholderText="Fill if problem specific to year" x:Name="Appear" Grid.Column="1" Grid.Row="4" FontSize="20" Width="auto" Height="auto" BorderThickness="0,0,0,2.50009989738464" RequestedTheme="Light"/>
+                    <TextBox TextWrapping="Wrap" 
+                             MaxWidth="300" 
+                             Foreground="Black" 
+                             BorderBrush="Black"  
+                             HorizontalAlignment="Left"
+                             PlaceholderText="Explain your problm in detail" 
+                             x:Name="Explanation" Grid.Column="1" Grid.Row="5" FontSize="20"
+                             Width="auto"
+                             Height="auto" 
+                             BorderThickness="0,0,0,2.50009989738464" 
+                             RequestedTheme="Light"/>
+                <Button x:ConnectionId='2' Height="auto" 
+                        MaxWidth="100" 
+                        Background="#FF0016EF"
+                        Width="auto" 
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Left" 
+                        Grid.Row="6" 
+                        Grid.ColumnSpan="2" 
+                        Content="Submit" 
+                                            />
+
+            </Grid>
+
+            <Grid x:Name="ListFragment" Background="#F4F4F4">
+                <StackPanel>
+                    <ListView x:ConnectionId='1' x:Name="ListMenuItems"                                                  
+                           >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                                Text="{Binding}" Margin="10"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                FontSize="18" 
+                                Foreground="Black" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Margin="0,210,0,0">
+                        <TextBlock  Foreground="Black" Text="Powered By" FontSize="12"/>
+                        <TextBlock  Foreground="Black" Text="Microsoft User Group Delhi" TextWrapping="Wrap" FontSize="24" FontFamily="Segoe UI" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </drawerLayout:DrawerLayout>
+        <!-- Drawer Layout -->
+
+    </Grid>
+</Page>
+
